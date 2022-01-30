@@ -18,6 +18,7 @@
         let Bagg = { lat: 45.49670, lng: -73.58202 };
         let Paul = { lat: 45.51024, lng: -73.55124 };
         let Phillips = { lat: 45.50382, lng: -73.56872 };
+        let Nuns = { lat: 45.49406, lng: -73.57627 };
         map = new google.maps.Map(document.getElementById("map"), {
           center: { lat: 45.502, lng: -73.559 },
           zoom: 13,
@@ -37,6 +38,11 @@
             position: Phillips,
             map,
             title: "Phillips Square",
+          });
+          new google.maps.Marker({
+            position: Nuns,
+            map,
+            title: "Grey Nuns",
           });
       }
     </script>
