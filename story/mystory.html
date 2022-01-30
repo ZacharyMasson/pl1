@@ -17,6 +17,7 @@
       function initMap() {
         let Bagg = { lat: 45.49670, lng: -73.58202 };
         let Paul = { lat: 45.51024, lng: -73.55124 };
+        let Phillips = { lat: 45.50382, lng: -73.56872 };
         map = new google.maps.Map(document.getElementById("map"), {
           center: { lat: 45.502, lng: -73.559 },
           zoom: 13,
@@ -31,6 +32,11 @@
             position: Paul,
             map,
             title: "Rue Saint Paul E",
+          });
+          new google.maps.Marker({
+            position: Phillips,
+            map,
+            title: "Phillips Square",
           });
       }
     </script>
