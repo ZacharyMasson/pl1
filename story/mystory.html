@@ -24,34 +24,70 @@
           zoom: 13,
           styles: Styling
           });
-          const contentString =
+          const Bagg_info =
             '<div id="content">' +
             '<div id="siteNotice">' +
             "</div>" +
-            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+            '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
+            '<div id="bodyContent">' +
+            '<img src="pics/bagghouse1900-1.png" alt="Bagg House" max-width="45%" height="auto">' +
+            "</div>" +
+            "</div>";
+          const Paul_info =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
+            '<div id="bodyContent">' +
+            '<img src="pics/bagghouse1900-1.png" alt="Bagg House" max-width="45%" height="auto">' +
+            "</div>" +
+            "</div>";
+          const Phillips_info =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
+            '<div id="bodyContent">' +
+            '<img src="pics/bagghouse1900-1.png" alt="Bagg House" max-width="45%" height="auto">' +
+            "</div>" +
+            "</div>";
+          const Nuns_info =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
             '<div id="bodyContent">' +
             '<img src="pics/bagghouse1900-1.png" alt="Bagg House" max-width="45%" height="auto">' +
             "</div>" +
             "</div>";
           const infowindow = new google.maps.InfoWindow({
-            content: contentString,
+            content: Bagg_info,
+          });
+          const infowindow2 = new google.maps.InfoWindow({
+            content: Paul_info,
+          });
+          const infowindow3 = new google.maps.InfoWindow({
+            content: Phillips_info,
+          });
+          const infowindow4 = new google.maps.InfoWindow({
+            content: Nuns_info,
           });
           let Bagg_marker = new google.maps.Marker({
             position: Bagg,
             map,
             title: "The Bagg House",
           });
-          new google.maps.Marker({
+          let Paul_marker = new google.maps.Marker({
             position: Paul,
             map,
             title: "Rue Saint Paul E",
           });
-          new google.maps.Marker({
+          let Phillips_marker = new google.maps.Marker({
             position: Phillips,
             map,
             title: "Phillips Square",
           });
-          new google.maps.Marker({
+          let Nuns_marker = new google.maps.Marker({
             position: Nuns,
             map,
             title: "Grey Nuns",
@@ -59,6 +95,27 @@
           Bagg_marker.addListener("click", () => {
             infowindow.open({
               anchor: Bagg_marker,
+              map,
+              shouldFocus: false,
+            });
+          });
+          Paul_marker.addListener("click", () => {
+            infowindow2.open({
+              anchor: Paul_marker,
+              map,
+              shouldFocus: false,
+            });
+          });
+          Phillips_marker.addListener("click", () => {
+            infowindow3.open({
+              anchor: Phillips_marker,
+              map,
+              shouldFocus: false,
+            });
+          });
+          Nuns_marker.addListener("click", () => {
+            infowindow4.open({
+              anchor: Nuns_marker,
               map,
               shouldFocus: false,
             });
