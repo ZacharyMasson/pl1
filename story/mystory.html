@@ -19,154 +19,112 @@
         let Paul = { lat: 45.51024, lng: -73.55124 };
         let Phillips = { lat: 45.50382, lng: -73.56872 };
         let Nuns = { lat: 45.49406, lng: -73.57627 };
-        
-        const sv = new google.maps.StreetViewService();
-        panorama = new google.maps.StreetViewPanorama(
-          document.getElementById("pano")
-
-        
         map = new google.maps.Map(document.getElementById("map"), {
           center: { lat: 45.502, lng: -73.559 },
           zoom: 13,
-          streetViewControl: false,
           styles: Styling
           });
-        
-        sv.getPanorama({ location: Bagg, radius: 50 }).then(processSVData);
-        map.addListener("click", (event) => {
-          sv.getPanorama({ location: event.latLng, radius: 50 })
-            .then(processSVData)
-            .catch((e) =>
-              console.error("Street View data not found for this location.")
-            );
-        });
-        
-        const Bagg_info =
-          '<div id="content">' +
-          '<div id="siteNotice">' +
-          "</div>" +
-          '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
-          '<div id="bodyContent">' +
-          '<img src="pics/bagghouse1900-1.png" alt="Bagg House">' +
-          "</div>" +
-          "</div>";
-        const Paul_info =
-          '<div id="content">' +
-          '<div id="siteNotice">' +
-          "</div>" +
-          '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
-          '<div id="bodyContent">' +
-          '<img src="pics/bagghouse1900-1.png" alt="Bagg House" max-width="45%" height="auto">' +
-          "</div>" +
-          "</div>";
-        const Phillips_info =
-          '<div id="content">' +
-          '<div id="siteNotice">' +
-          "</div>" +
-          '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
-          '<div id="bodyContent">' +
-          '<img src="pics/bagghouse1900-1.png" alt="Bagg House" max-width="45%" height="auto">' +
-          "</div>" +
-          "</div>";
-        const Nuns_info =
-          '<div id="content">' +
-          '<div id="siteNotice">' +
-          "</div>" +
-          '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
-          '<div id="bodyContent">' +
-          '<img src="pics/bagghouse1900-1.png" alt="Bagg House" max-width="45%" height="auto">' +
-          "</div>" +
-          "</div>";
-        const infowindow = new google.maps.InfoWindow({
-          content: Bagg_info,
-          maxWidth: 200,
-        });
-        const infowindow2 = new google.maps.InfoWindow({
-          content: Paul_info,
-          maxWidth: 200,
-        });
-        const infowindow3 = new google.maps.InfoWindow({
-          content: Phillips_info,
-          maxWidth: 200,
-        });
-        const infowindow4 = new google.maps.InfoWindow({
-          content: Nuns_info,
-          maxWidth: 200,
-        });
-        let Bagg_marker = new google.maps.Marker({
-          position: Bagg,
-          map,
-          title: "The Bagg House",
-        });
-        let Paul_marker = new google.maps.Marker({
-          position: Paul,
-          map,
-          title: "Rue Saint Paul E",
-        });
-        let Phillips_marker = new google.maps.Marker({
-          position: Phillips,
-          map,
-          title: "Phillips Square",
-        });
-        let Nuns_marker = new google.maps.Marker({
-          position: Nuns,
-          map,
-          title: "Grey Nuns",
-        });
-        Bagg_marker.addListener("click", () => {
-          infowindow.open({
-            anchor: Bagg_marker,
+          const Bagg_info =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
+            '<div id="bodyContent">' +
+            '<img src="pics/bagghouse1900-1.png" alt="Bagg House">' +
+            "</div>" +
+            "</div>";
+          const Paul_info =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
+            '<div id="bodyContent">' +
+            '<img src="pics/bagghouse1900-1.png" alt="Bagg House" max-width="45%" height="auto">' +
+            "</div>" +
+            "</div>";
+          const Phillips_info =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
+            '<div id="bodyContent">' +
+            '<img src="pics/bagghouse1900-1.png" alt="Bagg House" max-width="45%" height="auto">' +
+            "</div>" +
+            "</div>";
+          const Nuns_info =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
+            '<div id="bodyContent">' +
+            '<img src="pics/bagghouse1900-1.png" alt="Bagg House" max-width="45%" height="auto">' +
+            "</div>" +
+            "</div>";
+          const infowindow = new google.maps.InfoWindow({
+            content: Bagg_info,
+            maxWidth: 200,
+          });
+          const infowindow2 = new google.maps.InfoWindow({
+            content: Paul_info,
+            maxWidth: 200,
+          });
+          const infowindow3 = new google.maps.InfoWindow({
+            content: Phillips_info,
+            maxWidth: 200,
+          });
+          const infowindow4 = new google.maps.InfoWindow({
+            content: Nuns_info,
+            maxWidth: 200,
+          });
+          let Bagg_marker = new google.maps.Marker({
+            position: Bagg,
             map,
-            shouldFocus: false,
+            title: "The Bagg House",
           });
-        });
-        Paul_marker.addListener("click", () => {
-          infowindow2.open({
-            anchor: Paul_marker,
+          let Paul_marker = new google.maps.Marker({
+            position: Paul,
             map,
-            shouldFocus: false,
+            title: "Rue Saint Paul E",
           });
-        });
-        Phillips_marker.addListener("click", () => {
-          infowindow3.open({
-            anchor: Phillips_marker,
+          let Phillips_marker = new google.maps.Marker({
+            position: Phillips,
             map,
-            shouldFocus: false,
+            title: "Phillips Square",
           });
-        });
-        Nuns_marker.addListener("click", () => {
-          infowindow4.open({
-            anchor: Nuns_marker,
+          let Nuns_marker = new google.maps.Marker({
+            position: Nuns,
             map,
-            shouldFocus: false,
+            title: "Grey Nuns",
           });
-        });
-        }
-      function processSVData({ data }) {
-        const location = data.location;
-        const marker = new google.maps.Marker({
-          position: location.latLng,
-          map,
-          title: location.description,
-        });
-
-        panorama.setPano(location.pano);
-        panorama.setPov({
-          heading: 270,
-          pitch: 0,
-        });
-        panorama.setVisible(true);
-        marker.addListener("click", () => {
-          const markerPanoID = location.pano;
-
-    // Set the Pano to use the passed panoID.
-          panorama.setPano(markerPanoID);
-          panorama.setPov({
-            heading: 270,
-            pitch: 0,
+          Bagg_marker.addListener("click", () => {
+            infowindow.open({
+              anchor: Bagg_marker,
+              map,
+              shouldFocus: false,
+            });
           });
-          panorama.setVisible(true);
-        });
+          Paul_marker.addListener("click", () => {
+            infowindow2.open({
+              anchor: Paul_marker,
+              map,
+              shouldFocus: false,
+            });
+          });
+          Phillips_marker.addListener("click", () => {
+            infowindow3.open({
+              anchor: Phillips_marker,
+              map,
+              shouldFocus: false,
+            });
+          });
+          Nuns_marker.addListener("click", () => {
+            infowindow4.open({
+              anchor: Nuns_marker,
+              map,
+              shouldFocus: false,
+            });
+          });
+      }
     </script>
     <style>
         #map {
