@@ -122,6 +122,8 @@
           map,
           shouldFocus: false,
         });
+         sv.getPanorama({ location: Paul, radius: 50 })
+          .then(processSVData)
       });
       Phillips_marker.addListener("click", () => {
         infowindow3.open({
