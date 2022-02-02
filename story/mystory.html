@@ -115,7 +115,7 @@
           map,
           shouldFocus: false,
         });
-        sv.getPanorama({ location: Bagg, radius: 50 })
+        sv.getPanorama({ location: Bagg, radius: 10 })
           .then(processSVData)
       });
       Paul_marker.addListener("click", () => {
@@ -124,7 +124,7 @@
           map,
           shouldFocus: false,
         });
-         sv.getPanorama({ location: Paul, radius: 50 })
+         sv.getPanorama({ location: Paul, radius: 10 })
           .then(processSVData)
       });
       Phillips_marker.addListener("click", () => {
@@ -133,7 +133,7 @@
           map,
           shouldFocus: false,
         });
-         sv.getPanorama({ location: Phillips, radius: 50 })
+         sv.getPanorama({ location: Phillips, radius: 10 })
           .then(processSVData)
       });
       Nuns_marker.addListener("click", () => {
@@ -142,7 +142,7 @@
           map,
           shouldFocus: false,
         });
-         sv.getPanorama({ location: Nuns, radius: 50 })
+         sv.getPanorama({ location: Nuns, radius: 10 })
           .then(processSVData)
       });
       //map.addListener("click", (event) => {
@@ -155,13 +155,6 @@
     }
 
     function processSVData({ data }) {
-      const location = data.location;
-      const marker = new google.maps.Marker({
-        position: location.latLng,
-        map,
-        title: location.description,
-      });
-
       panorama.setPano(location.pano);
       panorama.setPov({
         heading: 270,
