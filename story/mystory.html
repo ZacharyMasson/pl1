@@ -113,6 +113,8 @@
           map,
           shouldFocus: false,
         });
+        sv.getPanorama({ location: Bagg, radius: 50 })
+          .then(processSVData)
       });
       Paul_marker.addListener("click", () => {
         infowindow2.open({
