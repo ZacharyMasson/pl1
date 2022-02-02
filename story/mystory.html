@@ -12,7 +12,11 @@
     let panorama;
 
     function initMap() {
-      const berkeley = { lat: 37.869085, lng: -122.254775 };
+      let Bagg = { lat: 45.49670, lng: -73.58202 };
+      let Paul = { lat: 45.51024, lng: -73.55124 };
+      let Phillips = { lat: 45.50382, lng: -73.56872 };
+      let Nuns = { lat: 45.49406, lng: -73.57627 };
+ 
       const sv = new google.maps.StreetViewService();
 
       panorama = new google.maps.StreetViewPanorama(
@@ -20,12 +24,12 @@
       );
       // Set up the map.
       map = new google.maps.Map(document.getElementById("map"), {
-        center: berkeley,
-        zoom: 16,
+        center: lat: 45.502, lng: -73.559;
+        zoom: 13,
         streetViewControl: false,
       });
       // Set the initial Street View camera to the center of the map
-      sv.getPanorama({ location: berkeley, radius: 50 }).then(processSVData);
+      sv.getPanorama({ location: Bagg, radius: 50 }).then(processSVData);
       // Look for a nearby Street View panorama when the map is clicked.
       // getPanorama will return the nearest pano when the given
       // radius is 50 meters or less.
