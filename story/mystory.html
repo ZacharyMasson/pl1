@@ -132,6 +132,8 @@
           map,
           shouldFocus: false,
         });
+         sv.getPanorama({ location: Phillips, radius: 50 })
+          .then(processSVData)
       });
       Nuns_marker.addListener("click", () => {
         infowindow4.open({
@@ -139,6 +141,8 @@
           map,
           shouldFocus: false,
         });
+         sv.getPanorama({ location: Nuns, radius: 50 })
+          .then(processSVData)
       });
       //map.addListener("click", (event) => {
         //sv.getPanorama({ location: event.latLng, radius: 50 })
