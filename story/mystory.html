@@ -157,7 +157,7 @@ The main one was the Directly Accessing Street View Data: https://developers.goo
           .then(processSVData)
       });
     }
-  // this function was part of the Accessing Street View template; it is ran
+  // this function was part of the Accessing Street View template; it takes the location of the input, creates a marker, and sets the street view. 
     function processSVData({ data }) {
       const location = data.location;
       const marker = new google.maps.Marker({
@@ -171,15 +171,7 @@ The main one was the Directly Accessing Street View Data: https://developers.goo
         pitch: 0,
       });
       panorama.setVisible(true);
-      marker.addListener("click", () => {
-        const markerPanoID = location.pano;
 
-        // Set the Pano to use the passed panoID.
-        panorama.setPano(markerPanoID);
-        panorama.setPov({
-          heading: 270,
-          pitch: 0,
-        });
         panorama.setVisible(true);
       });
     }
