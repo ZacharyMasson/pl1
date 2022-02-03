@@ -96,7 +96,8 @@ The main one was the Directly Accessing Street View Data: https://developers.goo
         maxWidth: 250,
       });
       
-      // Creating the markers from the locations created above. 
+      // Creating the markers from the locations created above.
+      // Simple Markers template used as a reference (https://developers.google.com/maps/documentation/javascript/examples/marker-simple)
       let Bagg_marker = new google.maps.Marker({
         position: Bagg,
         map,
@@ -158,6 +159,7 @@ The main one was the Directly Accessing Street View Data: https://developers.goo
       });
     }
   // this function was part of the Accessing Street View template; it takes the location of the input, creates a marker, and sets the street view. 
+  // as i understand it, the marker created in this function is going to be on the given location that i set before, so it would be "hidden"
     function processSVData({ data }) {
       const location = data.location;
       const marker = new google.maps.Marker({
@@ -165,6 +167,7 @@ The main one was the Directly Accessing Street View Data: https://developers.goo
         map,
         title: location.description,
       });
+      // set the panorama to the location
       panorama.setPano(location.pano);
       panorama.setPov({
         heading: 270,
@@ -183,17 +186,17 @@ The main one was the Directly Accessing Street View Data: https://developers.goo
         panorama.setVisible(true);
       });
     }
-
     </script>
     <style>
-        #map {
-        height: 100%;
-        }
-        html, body {
+      /*make map cover whole window*/
+      #map {height: 100%; width: 50%; float: left;}
+      #pano {width: 50%; height: 100%; float: right;}
+      html, body {
         height: 100%;
         margin: 0;
         padding: 0;
         }
+      /*Had to overwrite the google class for images.*/
         .gm-style img {
           width: 175px;
           height: auto;
@@ -201,13 +204,14 @@ The main one was the Directly Accessing Street View Data: https://developers.goo
           margin-left: auto;
           margin-right: auto;
         }
+      /*Title using same font that google does with some backups. font size set to change based on screen size*/
         h1.Title {font-family: 'Open Sans Condensed', Arial, sans-serif; font-size: 5vw; color: #333; text-align: center;}
     </style>
   </head>
   <body>
     <h1 class="Title">Interactive Map of Montreal: A Few Historic Sites and Personal Notes</h1>
-    <div id="map" style="width: 50%; height: 100%; float: left"></div>
-    <div id="pano" style="width: 50%; height: 100%; float: left"></div>
+    <div id="map"></div>
+    <div id="pano"></div>
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"
