@@ -109,15 +109,18 @@
         map,
         title: "Grey Nuns",
       });
-      Bagg_marker.addListener("click", () => {
-        infowindow.open({
-          anchor: Bagg_marker,
-          map,
-          shouldFocus: false,
-        });
-        sv.getPanorama({ location: Bagg, radius: 10 })
-          .then(processSVData)
-      });
+      google.maps.event.addListener(Bagg_marker, 'click', function(){
+        infowindow.close(); // Close previously opened infowindow
+        infowindow.setContent( "'<div id="content">' +
+				'<div id="siteNotice">' +
+				"</div>" +
+				'<h1 id="firstHeading" class="firstHeading">The Bagg House</h1>' +
+				'<div id="bodyContent">' +
+				'<img src="pics/bagghouse1900-1.png" alt="Bagg House">' +
+				"</div>" +
+				"</div>";");
+				infowindow.open(map, Bagg_marker);
+			});
       Paul_marker.addListener("click", () => {
         infowindow2.open({
           anchor: Paul_marker,
