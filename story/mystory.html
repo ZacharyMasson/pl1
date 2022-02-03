@@ -171,7 +171,15 @@ The main one was the Directly Accessing Street View Data: https://developers.goo
         pitch: 0,
       });
       panorama.setVisible(true);
+      marker.addListener("click", () => {
+        const markerPanoID = location.pano;
 
+        // Set the Pano to use the passed panoID.
+        panorama.setPano(markerPanoID);
+        panorama.setPov({
+          heading: 270,
+          pitch: 0,
+        });
         panorama.setVisible(true);
       });
     }
