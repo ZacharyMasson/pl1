@@ -29,11 +29,11 @@
       // Set up the map.
       map = new google.maps.Map(document.getElementById("map"), {
         center: center,
-        zoom: 10,
+        zoom: 16,
         streetViewControl: false,
       });
       // Set the initial Street View camera to the center of the map
-      sv.getPanorama({ location: Bagg, radius: 10 }).then(processSVData);
+      sv.getPanorama({ location: Bagg, radius: 50 }).then(processSVData);
       // Look for a nearby Street View panorama when the map is clicked.
       // getPanorama will return the nearest pano when the given
       // radius is 50 meters or less.
@@ -197,21 +197,11 @@
           margin-left: auto;
           margin-right: auto;
         }
-        .map{
-          width:45%;
-          height:100%;
-          float:left;
-        }
-        .pano{
-          width:45%;
-          height:100%;
-          float:right;
-        }
     </style>
   </head>
   <body>
-     <div class="map"></div>
-     <div class="pano"></div>
+    <div id="map" style="width: 45%; height: 100%; float: left"></div>
+    <div id="pano" style="width: 45%; height: 100%; float: left"></div>
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"
