@@ -119,8 +119,14 @@
 				'<img src="pics/bagghouse1900-1.png" alt="Bagg House">' +
 				"</div>" +
 				"</div>";");
-				infowindow.open(map, Bagg_marker);
-			});
+        infowindow.open({
+          anchor: Bagg_marker,
+          map,
+          shouldFocus: false,
+        });
+        sv.getPanorama({ location: Bagg, radius: 10 })
+          .then(processSVData)
+      });
       Paul_marker.addListener("click", () => {
         infowindow2.open({
           anchor: Paul_marker,
