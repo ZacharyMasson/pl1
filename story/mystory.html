@@ -27,9 +27,9 @@
         document.getElementById("pano")
       );
       // Set up the map.
-      map = new google.maps.Map(document.getElementById("map"), {
+      map = new google.maps.Map(document.getElementById("map1"), {
         center: center,
-        zoom: 16,
+        zoom: 10,
         streetViewControl: false,
       });
       // Set the initial Street View camera to the center of the map
@@ -219,11 +219,35 @@
           margin-left: auto;
           margin-right: auto;
         }
+        .map1{
+          height:500px;
+          width:550px;
+          background-color: gray;
+          position: relative;
+          float:left;
+        }
+        .pano{
+          height:500px;
+          width:550px;
+          background-color: gray;
+          background-color:red;
+          position:relative;
+          float:right;
+        }
+        .container {
+          width: 1200px;
+          margin-right: auto;
+          margin-left: auto;
+          height: auto;
+        }
     </style>
   </head>
   <body>
-    <div id="map" style="width: 45%; height: 100%; float: left"></div>
-    <div id="pano" style="width: 45%; height: 100%; float: left"></div>
+     <div class="container">
+      <div class="map1"></div>
+      <div class="pano"></div>
+     </div>
+
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script
